@@ -42,7 +42,48 @@
                 width: 100%;
                 z-index: 10;
                 margin: 0;
+                display: flex;
+                justify-content: space-between;
+                padding: 0 15px;
+                box-sizing: border-box;
+                align-items: center;
             }
+            
+            .title-text {
+                flex: 0 0 auto;
+            }
+            
+            .moon-button {
+                display: inline-flex;
+                align-items: center;
+                justify-content: center;
+                background: linear-gradient(to right, #00f6ff, #b829ea);
+                color: #0c0c17;
+                padding: 8px 25px;
+                border-radius: 50px;
+                font-weight: bold;
+                text-decoration: none;
+                box-shadow: 0 0 20px rgba(0, 246, 255, 0.8);
+                transition: all 0.3s;
+                cursor: pointer;
+                font-size: 20px;
+                border: 2px solid #00f6ff;
+                text-transform: uppercase;
+                min-width: 160px;
+                text-align: center;
+                letter-spacing: 1px;
+                position: relative;
+                right: 15px;
+                flex: 0 0 auto;
+            }
+            
+            .x-icon {
+                margin-left: 8px;
+                font-weight: bold;
+                font-style: normal;
+                font-size: 22px;
+            }
+            
             #game-container {
                 position: relative;
                 display: flex;
@@ -50,6 +91,36 @@
                 align-items: center;
                 height: 100%;
                 width: 100%;
+            }
+            
+            .moon-button:hover {
+                transform: scale(1.05);
+                box-shadow: 0 0 20px rgba(0, 246, 255, 1);
+            }
+            
+            /* Mobile responsiveness for the button */
+            @media (max-width: 600px) {
+                h1 {
+                    font-size: 16px;
+                    padding: 0 10px;
+                }
+                
+                .title-text {
+                    font-size: 14px;
+                }
+                
+                .moon-button {
+                    font-size: 13px;
+                    padding: 5px 12px;
+                    min-width: 110px;
+                    right: 10px;
+                    border-width: 1px;
+                }
+                
+                .x-icon {
+                    font-size: 14px;
+                    margin-left: 5px;
+                }
             }
             
             /* Mobile safari viewport fix */
@@ -61,7 +132,10 @@
         </style>
     </head>
     <body>
-        <h1>CRYPTO JUMP // TO THE MOON</h1>
+        <h1>
+            <span class="title-text">CRYPTO JUMP // TO THE MOON</span> 
+            <a href="https://x.com/wacaflow" class="moon-button" target="_blank">FOLLOW ME <span class="x-icon">𝕏</span></a>
+        </h1>
         <div id="game-container">
             <!-- Canvas will be inserted here by JavaScript -->
         </div>
