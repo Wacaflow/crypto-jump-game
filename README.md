@@ -2,6 +2,10 @@
 
 A cyberpunk-themed endless jumper game inspired by the classic Doodle Jump. Leap upward through platforms, avoid or shoot monsters, and see how high you can score in this neon-infused arcade experience.
 
+## Preview
+
+![Crypto Jump Game Preview](preview.png)
+
 ## Features
 
 - **Endless Gameplay**: Jump higher and higher with increasing difficulty
