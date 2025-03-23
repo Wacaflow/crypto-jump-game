@@ -1,0 +1,76 @@
+<html>
+    <head>
+        <title>Crypto Jump - To The Moon</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+        <style>
+            html, body {
+                height: 100%;
+                width: 100%;
+                margin: 0;
+                padding: 0;
+                overflow: hidden;
+                position: fixed;
+            }
+            body {
+                margin: 0;
+                padding: 0;
+                background-color: #0c0c17;
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+                height: 100vh;
+                overflow: hidden;
+                font-family: monospace;
+                color: #00f6ff;
+            }
+            canvas {
+                border: 2px solid #b829ea;
+                box-shadow: 0 0 15px rgba(184, 41, 234, 0.7);
+                max-width: 100%;
+                max-height: 100vh;
+                touch-action: manipulation;
+                display: block;
+            }
+            h1 {
+                position: absolute;
+                top: 10px;
+                text-shadow: 0 0 10px #00f6ff;
+                font-size: 24px;
+                letter-spacing: 2px;
+                text-align: center;
+                width: 100%;
+                z-index: 10;
+                margin: 0;
+            }
+            #game-container {
+                position: relative;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                height: 100%;
+                width: 100%;
+            }
+            
+            /* Mobile safari viewport fix */
+            @supports (-webkit-touch-callout: none) {
+                html, body {
+                    height: -webkit-fill-available;
+                }
+            }
+        </style>
+    </head>
+    <body>
+        <h1>CRYPTO JUMP // TO THE MOON</h1>
+        <div id="game-container">
+            <!-- Canvas will be inserted here by JavaScript -->
+        </div>
+        <script src="src/player.js"></script>
+        <script src="src/monsters.js"></script>
+        <script src="src/block.js"></script>
+        <script src="src/powerups.js"></script>
+        <script src="src/blockType.js"></script>
+        <script src="src/blockSpawner.js"></script>
+        <script src="src/main.js"></script>
+    </body>
+</html>
