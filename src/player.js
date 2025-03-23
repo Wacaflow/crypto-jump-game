@@ -148,15 +148,45 @@ var player = new function() {
                 let monster = monsterFunctions[blocks[i].monster];
                 let monsterX = blocks[i].x + monster.xDif;
                 let monsterY = blocks[i].y + monster.yDif;
+                
+                // Account for animation offset in collision detection
+                if (monster.animationOffset !== undefined) {
+                    monsterY += monster.animationOffset;
+                }
+                
+                // Account for side-to-side movement if present
+                if (monster.sideOffset !== undefined) {
+                    monsterX += monster.sideOffset;
+                }
+                
                 let monsterWidth = monster.width;
                 let monsterHeight = monster.height;
                 
+                // Add a hitbox visualization for debugging (comment out in production)
+                // ctx.strokeStyle = 'rgba(255, 0, 0, 0.5)';
+                // ctx.strokeRect(monsterX, monsterY, monsterWidth, monsterHeight);
+                
+                // Create a smaller collision hitbox for better gameplay feel (80% of visual size)
+                const hitboxPadding = monsterWidth * 0.1;
+                const hitboxX = monsterX + hitboxPadding;
+                const hitboxY = monsterY + hitboxPadding;
+                const hitboxWidth = monsterWidth * 0.8;
+                const hitboxHeight = monsterHeight * 0.8;
+                
                 // Collision with monster - but exclude top collision (which is handled above)
-                if (this.x + 20 < monsterX + monsterWidth && 
-                    this.x + this.width - 20 > monsterX && 
-                    this.y + 20 < monsterY + monsterHeight && 
-                    this.y + this.height - 10 > monsterY &&
-                    !(this.ySpeed > 0 && this.y + this.height < monsterY + monsterHeight/2)) {
+                // Using improved hitbox for better gameplay experience
+                if (this.x + 20 < hitboxX + hitboxWidth && 
+                    this.x + this.width - 20 > hitboxX && 
+                    this.y + 20 < hitboxY + hitboxHeight && 
+                    this.y + this.height - 10 > hitboxY &&
+                    !(this.ySpeed > 0 && this.y + this.height < hitboxY + hitboxHeight/3)) {
+                    
+                    // Visual effect for collision before game over
+                    ctx.save();
+                    ctx.fillStyle = 'rgba(255, 0, 0, 0.3)';
+                    ctx.fillRect(0, 0, screenWidth, screenHeight);
+                    ctx.restore();
+                    
                     dead = true;
                 }
             }
